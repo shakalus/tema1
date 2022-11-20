@@ -79,6 +79,7 @@ bool nr=true;
               ),
 
             ),
+            SizedBox(height: 10,),
             RaisedButton(onPressed: (){
                 setState(() {
                   if (double.parse(myController.text) !=null) {
