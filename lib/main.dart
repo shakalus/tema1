@@ -80,7 +80,7 @@ bool nr=true;
 
             ),
             SizedBox(height: 10,),
-            RaisedButton(onPressed: (){
+            ElevatedButton(onPressed: (){
                 setState(() {
                   if (double.parse(myController.text) !=null) {
                     text1 = '${(double.parse(myController.text)*4.85).toStringAsFixed(2)} RON';
@@ -107,7 +107,7 @@ bool nr=true;
   }
   void setValidator(valid){
     setState(() {
-      nr = valid;
+   //   nr = valid;
     });
   }
 }
