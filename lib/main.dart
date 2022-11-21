@@ -1,3 +1,5 @@
+// ignore_for_file: type_annotate_public_apis
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,10 +33,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String text1 = "";
-  final myController = TextEditingController();
+  String text1 = '';
+  final TextEditingController myController = TextEditingController();
 
-  RegExp digitValidator = RegExp("[0-9]+");
+  RegExp digitValidator = RegExp('[0-9]+');
   bool nr = true;
   @override
   Widget build(BuildContext context) {
@@ -55,33 +57,33 @@ class _MyHomePageState extends State<MyHomePage> {
           TextField(
             keyboardType: TextInputType.number,
             controller: myController,
-            onChanged: (text) {
-              if (double.parse(text) != null || digitValidator.hasMatch(text)) {
+            onChanged: (String text) {
+              if (double.tryParse(text) != null || digitValidator.hasMatch(text)) {
                 setValidator(true);
               } else {
                 setValidator(false);
               }
             },
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
+              border: const OutlineInputBorder(),
               hintText: 'Enter the amount in Euro',
               errorText: nr ? null : 'Please enter a number',
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           ElevatedButton(
               onPressed: () {
                 setState(() {
-                  if (double.parse(myController.text) != null) {
+                  if (double.tryParse(myController.text) != null) {
                     text1 = '${(double.parse(myController.text) * 4.85).toStringAsFixed(2)} RON';
                   } else {
                     text1 = '';
                   }
                 });
               },
-              child: Text('CONVERT!')),
+              child: const Text('CONVERT!'),),
           Text(
             text1,
             style: Theme.of(context).textTheme.headline4,
@@ -92,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // ignore: always_specify_types
   void setValidator(valid) {
     setState(() {
       //   nr = valid;
