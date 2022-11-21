@@ -74,16 +74,17 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 10,
           ),
           ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  if (double.tryParse(myController.text) != null) {
-                    text1 = '${(double.parse(myController.text) * 4.85).toStringAsFixed(2)} RON';
-                  } else {
-                    text1 = '';
-                  }
-                });
-              },
-              child: const Text('CONVERT!'),),
+            onPressed: () {
+              setState(() {
+                if (double.tryParse(myController.text) != null) {
+                  text1 = '${(double.parse(myController.text) * 4.85).toStringAsFixed(2)} RON';
+                } else {
+                  text1 = '';
+                }
+              });
+            },
+            child: const Text('CONVERT!'),
+          ),
           Text(
             text1,
             style: Theme.of(context).textTheme.headline4,
